@@ -13,4 +13,9 @@ Entry.prototype.vowels = function(body) {
   return vowels === null ? 0 : vowels.length;
 };
 
+Entry.prototype.consonants = function(body) {
+  var consonants = body.match(/[bcdfghjklmnpqrstvwxyz]/gi);
+  return consonants === null ? 0 : consonants.length;
+};
+
 exports.entryModule = Entry;

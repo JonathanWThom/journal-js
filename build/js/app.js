@@ -14,6 +14,11 @@ Entry.prototype.vowels = function(body) {
   return vowels === null ? 0 : vowels.length;
 };
 
+Entry.prototype.consonants = function(body) {
+  var consonants = body.match(/[bcdfghjklmnpqrstvwxyz]/gi);
+  return consonants === null ? 0 : consonants.length;
+};
+
 exports.entryModule = Entry;
 
 },{}],2:[function(require,module,exports){
@@ -27,8 +32,10 @@ $(document).ready(function() {
     var entry = new Entry(title, body);
     var length = entry.bodyLength(body);
     var vowels = entry.vowels(body);
-    $('#length').text(length);
-    $('#vowels').text(vowels);
+    var consonants = entry.consonants(body);
+    $('#length').text('Length: ' + length);
+    $('#vowels').text('Number of Vowels: ' + vowels);
+    $('#consonants').text('Number of Consonants: ' + consonants);
   });
 
 });

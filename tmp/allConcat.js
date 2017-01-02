@@ -8,8 +8,10 @@ $(document).ready(function() {
     var entry = new Entry(title, body);
     var length = entry.bodyLength(body);
     var vowels = entry.vowels(body);
-    $('#length').text(length);
-    $('#vowels').text(vowels);
+    var consonants = entry.consonants(body);
+    $('#length').text('Length: ' + length);
+    $('#vowels').text('Number of Vowels: ' + vowels);
+    $('#consonants').text('Number of Consonants: ' + consonants);
   });
 
 });
