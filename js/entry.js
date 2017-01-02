@@ -18,4 +18,19 @@ Entry.prototype.consonants = function(body) {
   return consonants === null ? 0 : consonants.length;
 };
 
+Entry.prototype.getTeaser = function(body) {
+  var sentences = body.split('.');
+  var firstSentence = sentences[0];
+  var splitSentence = firstSentence.split(' ');
+  var firstEight = [];
+  if (splitSentence.length > 8) {
+    firstEight = splitSentence.slice(0, 8);
+  }
+  else {
+    firstEight = splitSentence;
+  }
+  firstEight = firstEight.join(' ');
+  return firstEight;
+};
+
 exports.entryModule = Entry;

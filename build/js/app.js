@@ -19,6 +19,21 @@ Entry.prototype.consonants = function(body) {
   return consonants === null ? 0 : consonants.length;
 };
 
+Entry.prototype.getTeaser = function(body) {
+  var sentences = body.split('.');
+  var firstSentence = sentences[0];
+  var splitSentence = firstSentence.split(' ');
+  var firstEight = [];
+  if (splitSentence.length > 8) {
+    firstEight = splitSentence.slice(0, 8);
+  }
+  else {
+    firstEight = splitSentence;
+  }
+  firstEight = firstEight.join(' ');
+  return firstEight;
+};
+
 exports.entryModule = Entry;
 
 },{}],2:[function(require,module,exports){
@@ -33,9 +48,11 @@ $(document).ready(function() {
     var length = entry.bodyLength(body);
     var vowels = entry.vowels(body);
     var consonants = entry.consonants(body);
+    var getTeaser = entry.getTeaser(body);
     $('#length').text('Length: ' + length);
     $('#vowels').text('Number of Vowels: ' + vowels);
     $('#consonants').text('Number of Consonants: ' + consonants);
+    $('#getTeaser').text('Teaser: ' + getTeaser);
   });
 
 });
