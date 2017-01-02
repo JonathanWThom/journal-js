@@ -6,8 +6,10 @@ $(document).ready(function() {
     var title = $('#title').val();
     var body = $('#body').val();
     var entry = new Entry(title, body);
-    var output = entry.bodyLength(body);
-    $('#output').text(output);
+    var length = entry.bodyLength(body);
+    var vowels = entry.vowels(body);
+    $('#length').text(length);
+    $('#vowels').text(vowels);
   });
 
 });

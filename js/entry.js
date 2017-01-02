@@ -8,4 +8,9 @@ Entry.prototype.bodyLength = function(body) {
   return bodyLength;
 };
 
+Entry.prototype.vowels = function(body) {
+  var vowels = body.match(/[aeiou]/gi);
+  return vowels === null ? 0 : vowels.length;
+};
+
 exports.entryModule = Entry;

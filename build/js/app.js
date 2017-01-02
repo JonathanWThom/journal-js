@@ -9,6 +9,11 @@ Entry.prototype.bodyLength = function(body) {
   return bodyLength;
 };
 
+Entry.prototype.vowels = function(body) {
+  var vowels = body.match(/[aeiou]/gi);
+  return vowels === null ? 0 : vowels.length;
+};
+
 exports.entryModule = Entry;
 
 },{}],2:[function(require,module,exports){
@@ -20,8 +25,10 @@ $(document).ready(function() {
     var title = $('#title').val();
     var body = $('#body').val();
     var entry = new Entry(title, body);
-    var output = entry.bodyLength(body);
-    $('#output').text(output);
+    var length = entry.bodyLength(body);
+    var vowels = entry.vowels(body);
+    $('#length').text(length);
+    $('#vowels').text(vowels);
   });
 
 });
